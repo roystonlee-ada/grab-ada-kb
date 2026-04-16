@@ -430,7 +430,10 @@ def convert_to_ada_format(articles, user_type, language_locale, knowledge_source
     
     for article in articles:
         # Generate URL based on user type
-        if user_type == "moveitdriver":
+        if user_type == "moveitpassenger":
+            # MoveIt Passenger articles live on help.moveit.com.ph
+            article_url = f"https://help.moveit.com.ph/passenger/{language_locale}/{article['id']}"
+        elif user_type == "moveitdriver":
             # MoveIt Driver articles use driver/en-ph path on help.grab.com
             article_url = f"https://help.grab.com/driver/en-ph/{article['id']}"
         else:
